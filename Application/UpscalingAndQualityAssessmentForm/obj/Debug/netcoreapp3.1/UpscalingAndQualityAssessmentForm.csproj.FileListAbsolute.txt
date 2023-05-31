@@ -24,9 +24,7 @@ C:\Users\User\source\IU-IQA\Application\UpscalingAndQualityAssessmentForm\bin\De
 C:\Users\User\source\IU-IQA\Application\UpscalingAndQualityAssessmentForm\bin\Debug\netcoreapp3.1\System.Text.Encoding.CodePages.dll
 C:\Users\User\source\IU-IQA\Application\UpscalingAndQualityAssessmentForm\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp3.0\Microsoft.Win32.SystemEvents.dll
 C:\Users\User\source\IU-IQA\Application\UpscalingAndQualityAssessmentForm\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\OpenCvSharpExtern.dll
-C:\Users\User\source\IU-IQA\Application\UpscalingAndQualityAssessmentForm\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\opencv_videoio_ffmpeg470_64.dll
 C:\Users\User\source\IU-IQA\Application\UpscalingAndQualityAssessmentForm\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\OpenCvSharpExtern.dll
-C:\Users\User\source\IU-IQA\Application\UpscalingAndQualityAssessmentForm\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\opencv_videoio_ffmpeg470.dll
 C:\Users\User\source\IU-IQA\Application\UpscalingAndQualityAssessmentForm\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp3.0\System.Drawing.Common.dll
 C:\Users\User\source\IU-IQA\Application\UpscalingAndQualityAssessmentForm\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp3.0\System.Drawing.Common.dll
 C:\Users\User\source\IU-IQA\Application\UpscalingAndQualityAssessmentForm\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.0\System.Text.Encoding.CodePages.dll
@@ -42,3 +40,5 @@ C:\Users\User\source\IU-IQA\Application\UpscalingAndQualityAssessmentForm\obj\De
 C:\Users\User\source\IU-IQA\Application\UpscalingAndQualityAssessmentForm\obj\Debug\netcoreapp3.1\UpscalingAndQualityAssessmentForm.dll
 C:\Users\User\source\IU-IQA\Application\UpscalingAndQualityAssessmentForm\obj\Debug\netcoreapp3.1\UpscalingAndQualityAssessmentForm.pdb
 C:\Users\User\source\IU-IQA\Application\UpscalingAndQualityAssessmentForm\obj\Debug\netcoreapp3.1\UpscalingAndQualityAssessmentForm.genruntimeconfig.cache
+C:\Users\User\source\IU-IQA\Application\UpscalingAndQualityAssessmentForm\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\opencv_videoio_ffmpeg460_64.dll
+C:\Users\User\source\IU-IQA\Application\UpscalingAndQualityAssessmentForm\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\opencv_videoio_ffmpeg460.dll

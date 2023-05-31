@@ -7,24 +7,14 @@ namespace UpscalingAndQualityAssessmentForm.Upscale
     public class Upscaler
     {
         public ScaleEnum Scale { get; set; }
-        private DnnSuperResImpl _LapSRNDnn;
-        private DnnSuperResImpl _EDSRDnn;
-        private DnnSuperResImpl _FSRCNNDnn;
         private string _imagesFolderPath;
+        private string _modelsFolderPath;
 
         public void InitializeModels()
         {
-            var modelsFolderPath = 
+            _modelsFolderPath = 
                 Path.Combine(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.Parent.Parent.FullName,
                     "models");
-            _LapSRNDnn = new DnnSuperResImpl(ModelEnum.LapSRN.ToString().ToLowerInvariant(), (int)Scale);
-            _LapSRNDnn.ReadModel($"{modelsFolderPath}\\{ModelEnum.LapSRN}_x{(int)Scale}.pb");
-
-            _EDSRDnn = new DnnSuperResImpl(ModelEnum.EDSR.ToString().ToLowerInvariant(), (int)Scale);
-            _EDSRDnn.ReadModel($"{modelsFolderPath}\\{ModelEnum.EDSR}_x{(int)Scale}.pb");
-
-            _FSRCNNDnn = new DnnSuperResImpl(ModelEnum.FSRCNN.ToString().ToLowerInvariant(), (int)Scale);
-            _FSRCNNDnn.ReadModel($"{modelsFolderPath}\\{ModelEnum.FSRCNN}_x{(int)Scale}.pb");
 
             _imagesFolderPath =
                 Path.Combine(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.Parent.Parent.FullName,
@@ -75,6 +65,10 @@ namespace UpscalingAndQualityAssessmentForm.Upscale
 
             var image = new Mat(originalImagePath);
             var upscaledImage = new Mat();
+
+            var _LapSRNDnn = new DnnSuperResImpl(ModelEnum.LapSRN.ToString().ToLowerInvariant(), (int)Scale);
+            _LapSRNDnn.ReadModel($"{_modelsFolderPath}\\{ModelEnum.LapSRN}_x{(int)Scale}.pb");
+
             _LapSRNDnn.Upsample(image, upscaledImage);
 
             WriteBasedOnType(upscaledImagePath, upscaledImage, Path.GetExtension(originalImagePath).ToLowerInvariant());
@@ -89,6 +83,10 @@ namespace UpscalingAndQualityAssessmentForm.Upscale
 
             var image = new Mat(originalImagePath);
             var upscaledImage = new Mat();
+
+            var _EDSRDnn = new DnnSuperResImpl(ModelEnum.EDSR.ToString().ToLowerInvariant(), (int)Scale);
+            _EDSRDnn.ReadModel($"{_modelsFolderPath}\\{ModelEnum.EDSR}_x{(int)Scale}.pb");
+
             _EDSRDnn.Upsample(image, upscaledImage);
 
             WriteBasedOnType(upscaledImagePath, upscaledImage, Path.GetExtension(originalImagePath).ToLowerInvariant());
@@ -103,6 +101,11 @@ namespace UpscalingAndQualityAssessmentForm.Upscale
 
             var image = new Mat(originalImagePath);
             var upscaledImage = new Mat();
+
+
+            var _FSRCNNDnn = new DnnSuperResImpl(ModelEnum.FSRCNN.ToString().ToLowerInvariant(), (int)Scale);
+            _FSRCNNDnn.ReadModel($"{_modelsFolderPath}\\{ModelEnum.FSRCNN}_x{(int)Scale}.pb");
+
             _FSRCNNDnn.Upsample(image, upscaledImage);
 
             WriteBasedOnType(upscaledImagePath, upscaledImage, Path.GetExtension(originalImagePath).ToLowerInvariant());

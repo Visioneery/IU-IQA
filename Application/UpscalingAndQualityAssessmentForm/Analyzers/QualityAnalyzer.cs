@@ -15,7 +15,6 @@ namespace UpscalingAndQualityAssessmentForm.Analyzers
     public class QualityAnalyzer
     {
         private readonly Form1 _form;
-        private Net? _VggModel;
         private string _modelsFolderPath;
 
         public QualityAnalyzer(Form1 form)
@@ -24,14 +23,6 @@ namespace UpscalingAndQualityAssessmentForm.Analyzers
             _modelsFolderPath =
                 Path.Combine(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.Parent.Parent.FullName,
                     "models");
-        }
-
-        public void InitializeModels()
-        {
-           
-            var modelPath = $"{_modelsFolderPath}\\VGG_ILSVRC_16_layers.caffemodel";
-            var configPath = $"{_modelsFolderPath}\\VGG_ILSVRC_16_layers_deploy.prototxt";
-            _VggModel = CvDnn.ReadNetFromCaffe(configPath, modelPath);
         }
 
         public void DetermineQualityUsingPSNR()
@@ -275,6 +266,10 @@ namespace UpscalingAndQualityAssessmentForm.Analyzers
             var inputBlob1 = CvDnn.BlobFromImage(image, 1.0, size: new OpenCvSharp.Size(224, 224), mean: new Scalar(104, 117, 123), swapRB: true, crop: false);
             var inputBlobReference = CvDnn.BlobFromImage(referenceImage, 1.0, size: new OpenCvSharp.Size(224, 224), mean: new Scalar(104, 117, 123), swapRB: true, crop: false);
 
+            var modelPath = $"{_modelsFolderPath}\\VGG_ILSVRC_16_layers.caffemodel";
+            var configPath = $"{_modelsFolderPath}\\VGG_ILSVRC_16_layers_deploy.prototxt";
+            var _VggModel = CvDnn.ReadNetFromCaffe(configPath, modelPath);
+
             // Pass the images through the VGG-16 model to get their feature maps
             _VggModel.SetInput(inputBlob1);
             var features1 = new Mat[3];
@@ -318,6 +313,10 @@ namespace UpscalingAndQualityAssessmentForm.Analyzers
             var inputBlob1 = CvDnn.BlobFromImage(image1, 1.0, size: new OpenCvSharp.Size(224, 224), mean: new Scalar(104, 117, 123), swapRB: true, crop: false);
             var inputBlob2 = CvDnn.BlobFromImage(image2, 1.0, size: new OpenCvSharp.Size(224, 224), mean: new Scalar(104, 117, 123), swapRB: true, crop: false);
             var inputBlobReference = CvDnn.BlobFromImage(referenceImage, 1.0, size: new OpenCvSharp.Size(224, 224), mean: new Scalar(104, 117, 123), swapRB: true, crop: false);
+
+            var modelPath = $"{_modelsFolderPath}\\VGG_ILSVRC_16_layers.caffemodel";
+            var configPath = $"{_modelsFolderPath}\\VGG_ILSVRC_16_layers_deploy.prototxt";
+            var _VggModel = CvDnn.ReadNetFromCaffe(configPath, modelPath);
 
             // Pass the images through the VGG-16 model to get their feature maps
             _VggModel.SetInput(inputBlob1);

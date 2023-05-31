@@ -111,14 +111,12 @@ namespace UpscalingAndQualityAssessmentForm
         {
             _upscaler.Scale = ScaleEnum.Scale2;
             _upscaler.InitializeModels();
-            _qualityAnalyzer.InitializeModels();
         }
 
         private void ScaleX4ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             _upscaler.Scale = ScaleEnum.Scale4;
             _upscaler.InitializeModels();
-            _qualityAnalyzer.InitializeModels();
         }
 
         private void downScaleToolStripMenuItem_Click(object sender, EventArgs e)
